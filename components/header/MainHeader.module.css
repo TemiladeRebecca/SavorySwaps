@@ -48,6 +48,7 @@
   transition: all 0.25s;
   position: relative;
   z-index: 40;
+  background: transparent;
 }
 
 @media screen and (min-width: 768px) {
@@ -125,6 +126,10 @@
   display: flex;
 }
 
+.menu a:hover,
+.menu a:active {
+  color: #ff9b05;
+}
 .noUnderline {
   text-decoration: none;
 }
