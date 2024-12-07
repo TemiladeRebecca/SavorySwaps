@@ -9,6 +9,11 @@ SavorySwap is a food app built with Next.js that allows users to upload and shar
 - Next.js Framework: The app is built with Next.js to leverage its powerful features for fast and efficient development.
 - Smooth User Experience: The app is designed to provide a user-friendly experience, with fast page loads and easy navigation.
 
+## Demo
+## Demo
+
+Check out the demo of SavorySwap app at [SavorySwap Demo](https://savoryswap.netlify.app/).
+
 ## Installation and Setup
 
 ### Prerequisites
