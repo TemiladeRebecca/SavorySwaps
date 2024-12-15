@@ -5,7 +5,7 @@ import {getMeal} from '@/lib/meals.js'
 import classes from './page.module.css'
 
 export async function generateMetadata({params}) {
-    const meal = getMeal(params.slug);
+    const meal = await getMeal(params.slug);
 
     if(!meal) {
         notFound();
@@ -17,13 +17,14 @@ export async function generateMetadata({params}) {
     };
 }
 
-export default function MealPage({params}) {
-    const meal = getMeal(params.slug);
+export default async function MealPage({params}) {
+    const meal = await getMeal(params.slug);
 
     if(!meal) {
         notFound();
     }
 
+    
     meal.instructions = meal.instructions.replace(/\n/g, '<br />');
     return <>
         <header className={classes.header}>

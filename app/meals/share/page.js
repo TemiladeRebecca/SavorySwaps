@@ -8,7 +8,7 @@ import MealsFormSubmit from '@/components/meals/mealsFormSubmit';
 
 
 export default function ShareMealPage() {
-  const [state, formAction] = useFormState(shareMeal, {message: 'Invalid input'})
+  const [state, formAction] = useFormState(shareMeal, {message: ''})
   return (
     <>
       <header className={classes.header}>
@@ -47,7 +47,7 @@ export default function ShareMealPage() {
             ></textarea>
           </p>
           <ImagePicker label='Your image' name='image'/>
-          {state.message && <p>{state.message}</p>}
+          
           <p className={classes.actions}>
             <MealsFormSubmit />
           </p>
