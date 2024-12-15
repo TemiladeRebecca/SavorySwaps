@@ -12,8 +12,8 @@ export default function Home() {
         </div>
         <div>
           <div className={classes.hero}>
-            <h1>NextLevel Food for NextLevel Foodies</h1>
-            <p>Taste & share food from all over the world.</p>
+            <h1>Your Recipe Exchange, Reimagined!</h1>
+            <p>Discover, share, and explore a world of flavors with SavorySwap </p>
           </div>
           <div className={classes.cta}>
             <Link href="/community">Join the Community</Link>
@@ -25,26 +25,28 @@ export default function Home() {
         <section className={classes.section}>
           <h2>How it works</h2>
           <p>
-            NextLevel Food is a platform for foodies to share their favorite
-            recipes with the world. It&apos;s a place to discover new dishes,
-            and to connect with other food lovers.
+            Swap recipes, connect with fellow foodies, and bring your cooking game to the next level. 
+            Whether you're perfecting a family recipe or looking for inspiration, 
+            SavorySwap is your go-to hub for tasty discoveries and a vibrant foodie community.
           </p>
           <p>
-            NextLevel Food is a place to discover new dishes, and to connect
+            SavorySwap is a place to discover new dishes, and to connect
             with other food lovers.
           </p>
         </section>
 
         <section className={classes.section}>
-          <h2>Why NextLevel Food?</h2>
+          <h2>Why SavorySWap?</h2>
           <p>
-            NextLevel Food is a platform for foodies to share their favorite
-            recipes with the world. It&apos;s a place to discover new dishes,
-            and to connect with other food lovers.
+            SavorySwap is your ultimate platform for discovering, sharing, 
+            and enjoying amazing recipes from around the world. 
+            Whether you're a seasoned chef or a passionate home cook, 
+            SavorySwap connects you with a vibrant community of food enthusiasts.
           </p>
           <p>
-            NextLevel Food is a place to discover new dishes, and to connect
-            with other food lovers.
+            Explore trending dishes, share your culinary creations, 
+            and engage with food lovers who share your passion for cooking. 
+            With SavorySwap, every recipe is an opportunity to connect, create, and savor.
           </p>
         </section>
       </main>

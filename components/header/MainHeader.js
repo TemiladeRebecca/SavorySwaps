@@ -1,6 +1,4 @@
-//
 'use client';
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logoPng from "@/assets/logo.png";
@@ -8,25 +6,30 @@ import classes from "./MainHeader.module.css";
 import HeaderBackground from "./HeaderBackground.js";
 import NavLink from "./navLink.js";
 
+// Function to toggle the menu and button styles
+export function toggleMenu() {
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu');
+  
+  // Toggle the 'open' class on the hamburger button
+  btn.classList.toggle(classes.open);
+  
+  // Toggle the visibility of the menu (flex or hidden)
+  menu.classList.toggle(classes.flex);
+}
+
 export default function MainHeader() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleMenuToggle = () => {
-    setIsMenuOpen((prevState) => !prevState);
-    console.log("Menu open state:", !isMenuOpen);
-  };
-
   return (
     <>
       <HeaderBackground />
       <header className={classes.header}>
         <Link className={classes.logo} href="/">
           <Image src={logoPng} alt="A plate with food on it" priority />
-          NextLevel Food
+          SavorySwap
         </Link>
 
         <nav className={classes.nav}>
-          <ul className={`${isMenuOpen ? classes.hidden : ""}`}>
+          <ul>
             <li>
               <NavLink href="/meals">Browse Meals</NavLink>
             </li>
@@ -40,8 +43,8 @@ export default function MainHeader() {
             <button
               id="menu-btn"
               type="button"
-              className={`${classes.hamburger} ${isMenuOpen ? classes.open : ""}`}
-              onClick={handleMenuToggle}
+              className={classes.hamburger}
+              onClick={toggleMenu}
             >
               <span className={classes.hamburgerTop}></span>
               <span className={classes.hamburgerMiddle}></span>
@@ -51,14 +54,10 @@ export default function MainHeader() {
 
           <div
             id="menu"
-            className={`${classes.menu} ${isMenuOpen ? classes.flex : classes.hidden}`}
-          >{isMenuOpen && (
-            <>
-              <Link href="/meals" className={classes.noUnderline}>Browse Meals</Link>
-              <Link href="/community" className={classes.noUnderline}>Community</Link>
-            </>
-          )}
-            
+            className={classes.menu}
+          >
+            <Link href="/meals" className={classes.noUnderline}>Browse Meals</Link>
+            <Link href="/community" className={classes.noUnderline}>Community</Link>
           </div>
         </nav>
       </header>

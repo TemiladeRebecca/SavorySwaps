@@ -47,17 +47,15 @@
   height: 24px;
   transition: all 0.25s;
   position: relative;
-  z-index: 40;
+  z-index: 50;
   background: transparent;
+  border: none;
 }
 
 @media screen and (min-width: 768px) {
   .hamburgerWrapper {
     display: none;
-  }
-
-  .menu {
-    display: none;
+    z-index: 40;
   }
 
   .nav ul{
@@ -79,22 +77,22 @@
   background: #ff9b05;
   top: 0;
   left: 0;
-  transform: rotate(0);
   transition: all 0.5s;
 }
 
 .hamburgerMiddle {
-  transform: translateY(7px);
+  transform: translateY(9px);
 }
 
 .hamburgerBottom {
-  transform: translateY(14px);
+  transform: translateY(18px);
 }
 
 .hidden {
   display: none;
 }
 
+/* when menu is open */
 .open {
   transform: rotate(90deg);
 }
@@ -111,6 +109,7 @@
   transform: rotate(-45deg) translateY(6px) translateX(-6px);
 }
 
+
 .menu {
   display: none;
   flex-direction: column;
@@ -119,7 +118,13 @@
   gap: 0.75rem;
   font-size: 1.125rem;
   text-transform: uppercase;
-  background-color: white;
+  background-color: #303640;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .menu.flex {
@@ -132,9 +137,5 @@
 }
 .noUnderline {
   text-decoration: none;
+  color: white;
 }
-
-
-
-
-  
