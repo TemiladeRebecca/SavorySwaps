@@ -1,5 +1,15 @@
-const sql = require("better-sqlite3");
-const db = sql("meals.db");
+import pkg from 'pg'
+const { Client } = pkg;
+import dotenv from 'dotenv';
+
+dotenv.config()
+
+const client = new Client({
+   connectionString: process.env.DATABASE_URL,
+   ssl: {
+      rejectUnauthorized: false,
+    },
+});
 
 const dummyMeals = [
   {
@@ -164,38 +174,47 @@ const dummyMeals = [
   },
 ];
 
-db.prepare(
-  `
-   CREATE TABLE IF NOT EXISTS meals (
-       id INTEGER PRIMARY KEY AUTOINCREMENT,
-       slug TEXT NOT NULL UNIQUE,
-       title TEXT NOT NULL,
-       image TEXT NOT NULL,
-       summary TEXT NOT NULL,
-       instructions TEXT NOT NULL,
-       creator TEXT NOT NULL,
-       creator_email TEXT NOT NULL
-    )
-`,
-).run();
+const createTable = `
+    CREATE TABLE IF NOT EXISTS meals (
+        id SERIAL PRIMARY KEY,
+        slug TEXT NOT NULL UNIQUE,
+        title TEXT NOT NULL,
+        image TEXT NOT NULL,
+        summary TEXT NOT NULL,
+        instructions TEXT NOT NULL,
+        creator TEXT NOT NULL,
+        creator_email TEXT NOT NULL
+    );
+`;
 
-async function initData() {
-  const stmt = db.prepare(`
-      INSERT INTO meals VALUES (
-         null,
-         @slug,
-         @title,
-         @image,
-         @summary,
-         @instructions,
-         @creator,
-         @creator_email
-      )
-   `);
+async function initDatabase() {
+    try {
+        await client.connect();
+        console.log('Connected to PostgreSQL');
+        
+        await client.query(createTable);
+        console.log('Table created');
 
-  for (const meal of dummyMeals) {
-    stmt.run(meal);
-  }
+        // Clear existing data
+        await client.query('DELETE FROM meals');
+        console.log('Existing meals cleared');
+
+        // Insert dummy data
+        for (const meal of dummyMeals) {
+            await client.query(
+                `INSERT INTO meals (slug, title, image, summary, instructions, creator, creator_email) 
+                 VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+                [meal.slug, meal.title, meal.image, meal.summary, meal.instructions, meal.creator, meal.creator_email]
+            );
+        }
+        console.log('Dummy data inserted');
+        
+    } catch (error) {
+        console.error('Error:', error);
+    } finally {
+        await client.end();
+        console.log('Disconnected from PostgreSQL');
+    }
 }
 
-initData();
+initDatabase();
