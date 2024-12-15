@@ -26,7 +26,7 @@ export default function Home() {
           <h2>How it works</h2>
           <p>
             Swap recipes, connect with fellow foodies, and bring your cooking game to the next level. 
-            Whether you're perfecting a family recipe or looking for inspiration, 
+            Whether you&apos;re perfecting a family recipe or looking for inspiration, 
             SavorySwap is your go-to hub for tasty discoveries and a vibrant foodie community.
           </p>
           <p>
@@ -40,7 +40,7 @@ export default function Home() {
           <p>
             SavorySwap is your ultimate platform for discovering, sharing, 
             and enjoying amazing recipes from around the world. 
-            Whether you're a seasoned chef or a passionate home cook, 
+            Whether you&apos;re a seasoned chef or a passionate home cook, 
             SavorySwap connects you with a vibrant community of food enthusiasts.
           </p>
           <p>
