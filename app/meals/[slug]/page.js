@@ -1,3 +1,4 @@
+//
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import {getMeal} from '@/lib/meals.js'
@@ -42,10 +43,5 @@ export default async function MealPage({params}) {
     <main>
         <p className={classes.instructions} dangerouslySetInnerHTML={{__html: meal.instructions,}}></p>
     </main>
-    </>
-    
-    
-    
-    
-    
+    </>    
 }
