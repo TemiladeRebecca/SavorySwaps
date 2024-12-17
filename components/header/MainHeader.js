@@ -21,8 +21,8 @@ export function toggleMenu() {
 export default function MainHeader() {
   return (
     <>
-      <HeaderBackground />
-      <header className={classes.header}>
+    <HeaderBackground />
+      <  header className={classes.header}>
         <Link className={classes.logo} href="/">
           <Image src={logoPng} alt="A plate with food on it" priority />
           SavorySwap
