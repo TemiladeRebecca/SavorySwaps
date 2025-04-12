@@ -1,3 +1,4 @@
+//
 import classes from "./HeaderBackground.module.css"
 
 export default function HeaderBackground() {
