@@ -132,7 +132,7 @@
     .header {
       flex-direction: column; 
       gap: 2rem;
-      padding: 1rem;
+      padding: 0 1rem
     }
   
     .image {
