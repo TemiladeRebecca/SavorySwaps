@@ -53,7 +53,6 @@
   /* Hamburger Menu */
   .hamburgerWrapper {
     display: block;
-    margin-right: 10px;
   }
 
 .hamburger {
@@ -62,6 +61,8 @@
   height: 24px;
   transition: all 0.25s;
   position: fixed;
+  top: 2.5rem;
+  right: 1.5rem;
   z-index: 50;
   background: transparent;
   border: none;
