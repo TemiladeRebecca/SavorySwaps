@@ -5,6 +5,7 @@ import logoPng from "@/assets/logo.png";
 import classes from "./MainHeader.module.css";
 import HeaderBackground from "./HeaderBackground.js";
 import NavLink from "./navLink.js";
+import { useEffect } from "react";
 
 // Function to toggle the menu and button styles
 export function toggleMenu() {
@@ -19,6 +20,25 @@ export function toggleMenu() {
 }
 
 export default function MainHeader() {
+
+  useEffect(() => {
+    const menuLinks = document.querySelectorAll('#menu a');
+
+    menuLinks.forEach(link => link.addEventListener('click', () => {
+      const btn = document.getElementById('menu-btn');
+      const menu = document.getElementById('menu');
+
+      btn.classList.remove(classes.open);
+      menu.classList.remove(classes.flex);
+    }));
+
+    // clean up on ummount
+    return () => {
+      menuLinks.forEach(link => link.removeEventListener('click', () => {}));
+    }
+  }, []);
+
+
   return (
     <>
     <HeaderBackground />
