@@ -9,8 +9,14 @@ html {
 }
 
 body {
-  margin-top: 6rem;
+  margin: 0;
   background: radial-gradient(#282c34, #282c34);
+}
+
+@media (max-width: 768px) {
+  body {
+    margin-top: 8rem;
+  }
 }
 
 .not-found,
