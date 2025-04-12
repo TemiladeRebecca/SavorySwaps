@@ -156,6 +156,7 @@
 
 .menu.flex {
   display: flex;
+  gap: 1.5rem;
 }
 
 .menu a:hover,
