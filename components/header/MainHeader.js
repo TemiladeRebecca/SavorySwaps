@@ -24,17 +24,19 @@ export default function MainHeader() {
   useEffect(() => {
     const menuLinks = document.querySelectorAll('#menu a');
 
-    menuLinks.forEach(link => link.addEventListener('click', () => {
+    const closeMenu = () => {
       const btn = document.getElementById('menu-btn');
       const menu = document.getElementById('menu');
 
       btn.classList.remove(classes.open);
       menu.classList.remove(classes.flex);
-    }));
+    }
+
+    menuLinks.forEach(link => link.addEventListener('click', closeMenu));
 
     // clean up on ummount
     return () => {
-      menuLinks.forEach(link => link.removeEventListener('click', () => {}));
+      menuLinks.forEach(link => link.removeEventListener('click', closeMenu));
     }
   }, []);
 
